@@ -5,7 +5,16 @@ export default {
     tittle: 'Components/Text',
     component: Text,
     args: {
-        children: 'Lorem Ipsum'
+        children: 'Lorem Ipsum',
+        size: 'md',
+    },
+    argTypes: {
+        size: {
+            options: ['sm', 'md', 'lg'],
+            control: {
+                type: 'inline-radio'
+            }
+        }
     },
 } as Meta<TextProps>
 
@@ -19,7 +28,7 @@ export const Small: StoryObj<TextProps> = {
 
 export const Large: StoryObj<TextProps> = {
     args: {
-        size: 'sm'
+        size: 'lg'
     }
 }
 
@@ -27,7 +36,19 @@ export const CustomComponent: StoryObj<TextProps> = {
     args: {
         asChild: true,
         children: (
-            <p>Cavalo</p>
+            <p>Text with P Tag</p>
         )
+    },
+    argTypes: {
+        children: {
+            table: {
+                disable: true
+            }
+        },
+        asChild: {
+            table: {
+                disable: true,
+            }
+        }
     }
 }
